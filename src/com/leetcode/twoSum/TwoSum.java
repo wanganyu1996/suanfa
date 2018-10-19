@@ -58,6 +58,40 @@ public class TwoSum {
         }
         return result ;
     }
+    public int[] getTwo3(int[] nums,int target){
+        int [] result=new int[2];
+        Map<Integer,Integer> map=new HashMap ();
+        for(int i=0;i<nums.length;i++){
+               map.put(i,nums[i]);
+        }
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(target-nums[i])&&map.get(nums[i])!=i){
+               return new int[]{i,map.get(target-nums[i])};
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+    public int[] getTwo4(int[] nums, int target) {
+        Map<Integer,Integer> map=new HashMap ();
+
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(target-nums[i])&&map.get(target-nums[i])!=i){
+                return new int[]{i,map.get(target-nums[i])};
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+    public int[] twoSum4(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
 }
 /**
  *   7 0
